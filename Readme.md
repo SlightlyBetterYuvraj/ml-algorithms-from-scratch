@@ -1,134 +1,94 @@
-# Linear Regression From Scratch
+# ML Algorithms From Scratch
 
-A pure Python implementation of **multivariable linear regression using batch gradient descent**, built from scratch to understand the mathematics and mechanics behind machine learning algorithms.
+Implementing machine learning algorithms from scratch in Python to understand the underlying mathematics, optimization, and mechanics behind them.
 
-No scikit-learn. No NumPy. Just Python, mathematics, and gradient descent.
+This repository is a hands-on learning project focused on understanding **how machine learning algorithms work internally**, rather than relying entirely on prebuilt libraries.
 
-## What I Built
+The goal is to build each algorithm step by step, understand the math behind it, experiment with its behavior, and eventually compare custom implementations against established ML libraries.
 
-Started with single-feature linear regression and extended it to support multiple input features dynamically.
+## Algorithms
 
-The model learns a weight for each feature and a bias to minimize the Mean Squared Error (MSE) between its predictions and the actual targets.
+### 1. Linear Regression
 
-### Model
+**Status:** Completed
 
-For multiple features, the prediction is:
+Implemented single-feature and multivariable linear regression using pure Python.
 
-\[
-\hat{y} = w_1x_1 + w_2x_2 + \cdots + w_dx_d + b
-\]
+**Concepts covered:**
+- Linear models, weights, and bias
+- Mean Squared Error (MSE)
+- Gradient calculation
+- Batch gradient descent
+- Iterative parameter optimization
+- Dynamic support for multiple input features
 
-Where:
-- \(x_j\) — input feature
-- \(w_j\) — learned weight for that feature
-- \(b\) — bias
-- \(\hat{y}\) — predicted output
-
-## Concepts Implemented
-
-- [x] Single-feature linear regression
-- [x] Multivariable linear regression
-- [x] Weight and bias initialization
-- [x] Mean Squared Error (MSE)
-- [x] Gradient calculation for each feature
-- [x] Batch gradient descent
-- [x] Iterative parameter updates
-- [x] Dynamic support for multiple input features
-
-## How Training Works
-
-1. Initialize all weights and the bias to zero.
-2. Calculate predictions using the current parameters.
-3. Calculate prediction errors.
-4. Accumulate gradients for each weight and the bias.
-5. Update the parameters using gradient descent.
-6. Repeat for the specified number of epochs.
-
-### Loss Function
-
-Mean Squared Error measures the average squared prediction error:
+**Model:**
 
 \[
-MSE = \frac{1}{n}\sum_{i=1}^{n}(\hat{y}_i-y_i)^2
+\hat{y} = \sum_{j=1}^{d} w_jx_j+b
 \]
 
-### Gradient Descent
+**Experiment:** Trained a model on 20 examples with five features, recovering weights close to the known parameters.
 
-The parameters are updated using:
+| Metric | Result |
+|---|---:|
+| Features | 5 |
+| Training examples | 20 |
+| Epochs | 10,000 |
+| Learning rate | 0.01 |
+| Training MSE | 0.00544 |
 
-\[
-w_j \leftarrow w_j-\alpha\frac{\partial MSE}{\partial w_j}
-\]
+The experiment used synthetic data generated from a known linear equation to verify the learned parameters.
 
-\[
-b \leftarrow b-\alpha\frac{\partial MSE}{\partial b}
-\]
+## Planned Algorithms
 
-Where \(\alpha\) is the learning rate.
+- [ ] Logistic Regression
+- [ ] K-Nearest Neighbors (KNN)
+- [ ] Decision Tree Classifier
+- [ ] Naive Bayes
+- [ ] Support Vector Machine (SVM)
+- [ ] K-Means Clustering
+- [ ] Random Forest
+- [ ] Neural Network from scratch
+- [ ] Backpropagation and automatic differentiation
 
-## Example Experiment
-
-I tested the model with **5 features and 20 training examples**. The target values were generated using a known linear equation:
-
-\[
-y=4x_1-2x_2+3x_3+0.5x_4+6x_5+10
-\]
-
-This allowed me to compare the parameters learned by gradient descent against the known parameters.
-
-### Results
-
-| Parameter | Expected | Learned |
-|---|---:|---:|
-| Weight 1 | 4.0 | 4.028 |
-| Weight 2 | -2.0 | -1.958 |
-| Weight 3 | 3.0 | 3.038 |
-| Weight 4 | 0.5 | 0.546 |
-| Weight 5 | 6.0 | 6.030 |
-| Bias | 10.0 | 9.370 |
-| Training MSE | 0.0 | 0.00544 |
-
-*Experiment settings: 10,000 epochs and a learning rate of 0.01.*
-
-The model learned parameters close to the known values and achieved a low training MSE.
+This roadmap will evolve as I learn new concepts and explore more advanced algorithms.
 
 ## Tech Stack
 
 - **Language:** Python
-- **Dependencies:** None
-- **Approach:** Pure Python implementation
+- **Dependencies:** None for the initial linear regression implementation
+- **Approach:** Mathematical implementation before library-based usage
 
-## Running the Project
+Future algorithms may introduce NumPy or other tools when useful for understanding vectorization, numerical computing, and performance.
 
-1. Clone the repository.
-2. Open the Python script containing the implementation.
-3. Run it with Python 3.
+## Repository Structure
 
-```bash
-python linear_regression.py
+```text
+ml-algorithms-from-scratch/
+├── linear_regression.py
+├── README.md
+└── ...
 ```
 
-Replace `linear_regression.py` with the actual filename if yours differs.
+As the project grows, each algorithm will have its own implementation and supporting experiments.
 
-## What I Learned
+## Learning Philosophy
 
-This project helped me understand:
+The objective isn't simply to reproduce the output of an ML library. It's to understand the processes that produce it.
 
-- How weights and bias control a linear model's predictions.
-- How loss functions measure prediction error.
-- How gradients determine the direction and magnitude of parameter updates.
-- Why gradient accumulation must happen before updating parameters in batch gradient descent.
-- How the same algorithm can support different numbers of features without rewriting its core logic.
+For each algorithm, I aim to explore:
 
-The goal wasn't just to use an existing machine learning library. It was to understand what happens underneath the API.
+1. **Intuition:** What problem does the algorithm solve?
+2. **Mathematics:** What equations and optimization methods does it use?
+3. **Implementation:** How can it be built from the ground up?
+4. **Experiments:** How do hyperparameters and data affect its behavior?
+5. **Evaluation:** How does the implementation compare with established libraries?
 
-## What's Next?
+## Long-Term Goal
 
-- [ ] Implement logistic regression from scratch.
-- [ ] Implement K-Nearest Neighbors.
-- [ ] Build a decision tree classifier.
-- [ ] Implement a small neural network and backpropagation.
-- [ ] Compare custom implementations against scikit-learn.
+Build a strong foundation in machine learning and deep learning by understanding algorithms at the mathematical and implementation levels, progressing toward neural networks, optimization, and the systems that make modern ML possible.
 
 ---
-**Learning machine learning by rebuilding it from the ground up.**
+
+*Learning by implementing. Understanding by experimenting.*
