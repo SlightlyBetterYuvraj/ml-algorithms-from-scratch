@@ -12,11 +12,23 @@ The goal is to implement algorithms step by step, experiment with them, and comp
 
 Implemented single-feature and multivariable Linear Regression using pure Python.
 
-**Concepts:** Weights and bias, MSE, gradients, batch gradient descent, and parameter optimization.
+**Concepts covered:**
+- Linear models, weights, and bias
+- Mean Squared Error (MSE)
+- Gradient calculation
+- Batch gradient descent
+- Iterative parameter optimization
+- Dynamic support for multiple input features
 
-**Experiment results:**
+**Model:**
 
-| Metric | Value |
+\[
+\hat{y} = \sum_{j=1}^{d} w_jx_j+b
+\]
+
+**Experiment:** Trained a model on 20 examples with five features, recovering weights close to the known parameters.
+
+| Metric | Result |
 |---|---:|
 | Features | 5 |
 | Samples | 20 |
