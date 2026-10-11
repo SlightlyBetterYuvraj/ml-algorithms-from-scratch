@@ -22,8 +22,9 @@ Implemented single-feature and multivariable Linear Regression using pure Python
 
 **Model:**
 
+$$
 \hat{y} = \sum_{j=1}^{d} w_j x_j + b
-
+$$
 **Experiment:** Trained a model on 20 examples with five features, recovering weights close to the known parameters.
 
 | Metric | Result |
