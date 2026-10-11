@@ -1,10 +1,8 @@
 # ML Algorithms From Scratch
 
-Implementing machine learning algorithms from scratch in Python to understand the underlying mathematics, optimization, and mechanics behind them.
+Building machine learning algorithms from scratch in Python to understand their mathematics, optimization, and internal mechanics.
 
-This repository is a hands-on learning project focused on understanding **how machine learning algorithms work internally**, rather than relying entirely on prebuilt libraries.
-
-The goal is to build each algorithm step by step, understand the math behind it, experiment with its behavior, and eventually compare custom implementations against established ML libraries.
+The goal is to implement algorithms step by step, experiment with them, and compare them against established ML libraries.
 
 ## Algorithms
 
@@ -12,82 +10,82 @@ The goal is to build each algorithm step by step, understand the math behind it,
 
 **Status:** Completed
 
-Implemented single-feature and multivariable linear regression using pure Python.
+Implemented single-feature and multivariable Linear Regression using pure Python.
 
-**Concepts covered:**
-- Linear models, weights, and bias
-- Mean Squared Error (MSE)
-- Gradient calculation
-- Batch gradient descent
-- Iterative parameter optimization
-- Dynamic support for multiple input features
+**Concepts:** Weights and bias, MSE, gradients, batch gradient descent, and parameter optimization.
 
-**Model:**
+**Experiment results:**
 
-\[
-\hat{y} = \sum_{j=1}^{d} w_jx_j+b
-\]
-
-**Experiment:** Trained a model on 20 examples with five features, recovering weights close to the known parameters.
-
-| Metric | Result |
+| Metric | Value |
 |---|---:|
 | Features | 5 |
-| Training examples | 20 |
+| Samples | 20 |
 | Epochs | 10,000 |
 | Learning rate | 0.01 |
 | Training MSE | 0.00544 |
 
-The experiment used synthetic data generated from a known linear equation to verify the learned parameters.
+### 2. Logistic Regression
 
-## Planned Algorithms
+**Status:** Core implementation completed
 
-- [ ] Logistic Regression
-- [ ] K-Nearest Neighbors (KNN)
-- [ ] Decision Tree Classifier
+Implemented single-feature binary Logistic Regression by adapting my Linear Regression algorithm.
+
+**Concepts:** Sigmoid, probability prediction, binary cross-entropy, gradients, batch gradient descent, and decision boundaries.
+
+**Key equations:**
+
+```text
+z = wx + b
+p = 1 / (1 + e^(-z))
+dw = mean((p - y) * x)
+db = mean(p - y)
+```
+
+**Experiment results:**
+
+| Metric | Value |
+|---|---:|
+| Features | 1 |
+| Samples | 20 |
+| Epochs | 10,000 |
+| Learning rate | 0.06 |
+| Final weight | 0.908613 |
+| Final bias | -4.193241 |
+| Average loss across epochs | 0.401921 |
+
+Next: evaluate predictions, test on unseen data, and compare with Scikit-learn.
+
+## Roadmap
+
+- [ ] Multivariable Logistic Regression
+- [ ] K-Nearest Neighbors
+- [ ] Decision Trees
 - [ ] Naive Bayes
-- [ ] Support Vector Machine (SVM)
+- [ ] Support Vector Machines
 - [ ] K-Means Clustering
 - [ ] Random Forest
-- [ ] Neural Network from scratch
+- [ ] Neural Networks from scratch
 - [ ] Backpropagation and automatic differentiation
-
-This roadmap will evolve as I learn new concepts and explore more advanced algorithms.
 
 ## Tech Stack
 
 - **Language:** Python
-- **Dependencies:** None for the initial linear regression implementation
-- **Approach:** Mathematical implementation before library-based usage
+- **Core:** Pure Python and standard library
+- **Comparison:** Scikit-learn where useful
 
-Future algorithms may introduce NumPy or other tools when useful for understanding vectorization, numerical computing, and performance.
+## Learning Approach
 
-## Repository Structure
+For every algorithm:
 
-```text
-ml-algorithms-from-scratch/
-├── linear_regression.py
-├── README.md
-└── ...
-```
-
-As the project grows, each algorithm will have its own implementation and supporting experiments.
-
-## Learning Philosophy
-
-The objective isn't simply to reproduce the output of an ML library. It's to understand the processes that produce it.
-
-For each algorithm, I aim to explore:
-
-1. **Intuition:** What problem does the algorithm solve?
-2. **Mathematics:** What equations and optimization methods does it use?
-3. **Implementation:** How can it be built from the ground up?
-4. **Experiments:** How do hyperparameters and data affect its behavior?
-5. **Evaluation:** How does the implementation compare with established libraries?
+1. Understand the intuition.
+2. Learn the mathematics.
+3. Implement from scratch.
+4. Experiment with data and hyperparameters.
+5. Evaluate and compare results.
 
 ## Long-Term Goal
 
-Build a strong foundation in machine learning and deep learning by understanding algorithms at the mathematical and implementation levels, progressing toward neural networks, optimization, and the systems that make modern ML possible.
+Build a strong foundation in machine learning and deep learning by understanding algorithms from the ground up.
 
 ---
 
